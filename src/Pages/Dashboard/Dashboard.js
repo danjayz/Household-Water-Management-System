@@ -1,5 +1,7 @@
 // import React from "react";
+import React, { useEffect, useState }  from 'react'
 import Cards from "../../Components/Dashboard/Cards";
+import Monthlybill from '../../Components/Dashboard/Monthlybill';
 import "./Dashboard.css";
 
 import React, { useEffect, useState } from "react";
@@ -29,6 +31,22 @@ const Dashboard = () => {
         fetchUserData();
     }, []);
 
+     const [billAmount, setBillAmount] = useState(0.00);
+  useEffect(() => {
+    // Fetch bill amount from the database
+    const fetchBillAmount = async () => {
+      try {
+        const response = await fetch('/api/getMonthlyBill'); // Replace with your actual API endpoint
+        const data = await response.json();
+        setBillAmount(data.amount); // Assuming the API returns an object with an 'amount' field
+      } catch (error) {
+        console.error('Failed to fetch bill amount:', error);
+      }
+    };
+
+    fetchBillAmount();
+  }, []);
+
     return (
         <div className="dashboard">
             {userDetails ? (
@@ -40,6 +58,7 @@ const Dashboard = () => {
             )}
             <div className="cards-container">
                 <Cards />
+                 <Monthlybill billAmount={billAmount}/>
             </div>
         </div>
     );
