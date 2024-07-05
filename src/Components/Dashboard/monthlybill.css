@@ -1,0 +1,43 @@
+
+.monthly-bill-card {
+    position: fixed;
+    bottom: 250px; 
+    right:70px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 220px; 
+    height: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+  
+}
+.icon-wrapper {
+    margin-right:500px; 
+    flex-direction: row;/* Adjust margin as needed */
+  }
+  
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .monthly-bill-card h3 {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 800;
+    display:flex;
+    color: #0d3897; ;
+  }
+  
+  .monthly-bill-card p {
+    font-size: 18px;
+    font-weight:bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+    Display:flex;
+    margin-bottom:5px
+  }
+  
